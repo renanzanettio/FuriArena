@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - FuriArena</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h1 class="auth-title">Cadastro</h1>
+      <form id="formCadastro">
+        <input class="auth-input" type="text" name="nome_usuario" placeholder="Nome de Usuário" required />
+        <input class="auth-input" type="email" name="email_usuario" placeholder="E-mail" required />
+        <input class="auth-input" type="password" name="senha_usuario" placeholder="Senha" required />
+        <button class="auth-button" type="submit">Cadastrar</button>
+      </form>
+      <p class="auth-switch">Já tem conta? <a href="login.html">Faça login</a></p>
+    </div>
+  </div>
+
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

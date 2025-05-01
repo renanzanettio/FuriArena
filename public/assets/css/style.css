@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --gold: #edbd61;
+  --background: #171717;
+  --font-title: "Bebas neue";
+  --gray: #cecece;
+}
+
+body {
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--white);
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: currentColor;
+}
+
+.navbar {
+  top: 0;
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100px;
+  align-items: center;
+  padding-inline: 52px;
+  justify-content: space-between;
+
+  & .logo-name-links {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+
+    & .logo-name {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+
+      & .logo {
+        width: 52px;
+      }
+      & .name {
+        font-family: var(--font-title);
+        font-size: 2rem;
+      }
+    }
+
+    & .nav-links {
+      display: flex;
+      gap: 24px;
+
+      & .link {
+        font-size: 1.2rem;
+        font-weight: 300;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .username-profile {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+    & .username {
+      font-size: 20px;
+    }
+
+    & .profile {
+      font-size: 32px;
+    }
+
+    & .exit {
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+
+  & .chat-da-galera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  & .chat-da-galera:hover {
+    background-color: #edbd61;
+    transition: 0.3s ease;
+    color: var(--black);
+  }
+}
+
+.wrapper-chat {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  & .title {
+    text-align: center;
+    font-size: 52px;
+    font-family: var(--font-title);
+    margin-top: 10vh;
+  }
+
+  & .container-chat {
+    width: 80vw;
+    height: 700px;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px var(--gold) solid;
+    border-radius: 10px;
+
+    & .grid-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      position: relative;
+
+      & .message {
+        display: flex;
+        align-self: flex-start;
+        padding-inline: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 10px;
+        gap: 5px;
+        border-bottom-left-radius: 0px;
+        border: 1px solid var(--gold);
+        word-wrap: break-word;
+
+        & .username{
+        font-weight: 700;
+        }
+      }
+    }
+    & .textbox-submit {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 90%;
+      height: 50px;
+      align-self: center;
+
+      & .textbox {
+        width: 90%;
+        border-radius: 10px;
+        border: 1px solid var(--gold);
+        background-color: #00000000;
+        color: var(--gray);
+        font-size: 1.2rem;
+        padding-inline: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: var(--gray);
+      }
+
+      & .textbox:focus {
+        border: 1px solid var(--gold);
+      }
+
+      & .submit {
+        width: 8%;
+        height: 50px;
+        font-size: 1.2rem;
+        color: var(--black);
+        background-color: var(--gold);
+        font-weight: 700;
+        border-radius: 10px;
+        transition: 0.3s ease;
+      }
+
+      & .submit:hover {
+        transition: 0.3s ease;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+/* CADASTRO E LOGIN */
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.auth-card {
+  background-color: #1a1a1a;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px var(--gold);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-title {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  margin-bottom: 24px;
+  color: var(--gold);
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid var(--gold);
+  background-color: #00000000;
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.auth-input:focus {
+  outline: none;
+  border: 1px solid var(--gold);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--gold);
+  color: var(--black);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.auth-switch {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+.auth-switch a {
+  color: var(--gold);
+  text-decoration: none;
+}
