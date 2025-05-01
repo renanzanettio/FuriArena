@@ -8,44 +8,44 @@
   </head>
   <body>
     <nav class="navbar">
-        <div class="logo-name-links">
-
-            <div class="logo-name">
-
-            <div class="logo">
-                <img src="assets/img/furia-logo.svg" alt="" />
-            </div>
-            <div class="name">FuriArena</div>
-
-            </div>
-
-            <div class="nav-links">
-                <div class="link">Inicio</div>
-                <div class="link">Calendário de Jogos</div>
-                <div class="link">Loja</div>
-            </div>
+      <div class="logo-name-links">
+        <div class="logo-name">
+          <div class="logo">
+            <img src="assets/img/furia-logo.svg" alt="" />
+          </div>
+          <div class="name">FuriArena</div>
         </div>
 
-        <div class="username-profile">
-            <div class="username">Rwnanz</div>
-            <iconify-icon icon="iconamoon:profile" class="profile"></iconify-icon>
-            <iconify-icon icon="iconamoon:exit" class="exit"></iconify-icon>
+        <div class="nav-links">
+          <div class="link">Inicio</div>
+          <div class="link">Calendário de Jogos</div>
+          <div class="link">Loja</div>
         </div>
+      </div>
+
+      <div class="username-profile">
+        <span id="userName"></span>
+        <iconify-icon icon="iconamoon:profile" class="profile"></iconify-icon>
+        <iconify-icon icon="iconamoon:exit" class="exit"></iconify-icon>
+      </div>
     </nav>
 
     <div class="wrapper-chat">
-        <div class="title">Chat da Galera</div>
+      <div class="title">Chat da Galera</div>
+      <form id="chat">
         <div class="container-chat">
-            <div class="grid-chat">
-                <div class="message">Olá</div>
+          <div class="grid-chat">
+            <div class="message">
+              <label class="username">Rwnanz: </label>Olá
             </div>
-            <div class="textbox-submit">
-                <input type="text" class="textbox" placeholder="Digite sua mensagem">
-                <button type="submit" class="submit">Enviar</button>
-            </div>
+          </div>
+          <div class="textbox-submit">
+            <input type="text" class="textbox" name="message" placeholder="Digite sua mensagem"/>
+            <button type="submit" class="submit">Enviar</button>
+          </div>
         </div>
+      </form>
     </div>
-
 
     <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

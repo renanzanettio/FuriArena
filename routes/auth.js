@@ -46,4 +46,15 @@ router.get('/logout', (req, res) => {
   });
 });
 
+// Retorna dados do usuário logado
+router.get('/user', (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ erro: 'Usuário não logado' });
+  }
+  res.json({ nome: req.session.user.nome_usuario });
+});
+
+
+
+
   module.exports = router;

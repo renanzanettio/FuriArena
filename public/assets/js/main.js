@@ -1,7 +1,7 @@
 var socket = io('http://localhost:3000')
 
 function renderMessage(message) {
-    $('.messages').append('<div class="message"><strong>'+ message.author +'</strong>: ' + message.message);
+    $('.grid-chat').append('<div class="message"><label class="username">'+ message.author +': </label> ' + message.message);
 }
 
 socket.on('receivedMessage', function(message) {
@@ -17,8 +17,10 @@ socket.on('previousMessages', function(messages) {
 $('#chat').submit(function(event) {
     event.preventDefault();
 
-    var author = $('input[name=username]').val();
+    var author = $('#userName').text();
     var message = $('input[name=message]').val();
+
+    console.log(author);
 
     if (author.length && message.length) {
         var messageObject = {
@@ -29,6 +31,7 @@ $('#chat').submit(function(event) {
         renderMessage(messageObject);
         socket.emit('sendMessage', messageObject);
         $('input[name=message]').val('');
+        console.log("enviou");
     }
 });
 
@@ -67,7 +70,7 @@ $('#formCadastro').submit(function (e) {
     $.post('/auth/login', data)
       .done(() => {
         alert('Login realizado com sucesso!');
-        window.location.href = 'index.html';
+        window.location.href = 'chat.html';
       })
       .fail(() => {
         alert('Email ou senha incorretos.');
@@ -78,5 +81,17 @@ $('#formCadastro').submit(function (e) {
   $('.exit').click(function () {
     window.location.href = '/auth/logout';
   });
+
+  //Busca o nome e exibe no id userName
+  $(document).ready(function () {
+    $.get('/auth/user')
+      .done(function (res) {
+        $('#userName').text(res.nome); // Exibe o nome no elemento com ID userName
+      })
+      .fail(function () {
+        $('#userName').text('Visitante');
+      });
+  });
+  
   
   
