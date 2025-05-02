@@ -93,5 +93,81 @@ $('#formCadastro').submit(function (e) {
       });
   });
   
+
+  // CRONOGRAMA DE CAMPEONATO
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.getElementById("grid-campeonato");
+  
+    try {
+      const res = await fetch("/api/cronograma-campeonatos");
+      const data = await res.json();
+  
+      container.innerHTML = ""; // limpa os cards fixos
+  
+      data.forEach(item => {
+        const card = `
+            <div class="campeonato">
+              <div class="jogo-campeonato">${item.jogo_campeonato}</div>
+              <div class="nome-fase-campeonato">
+                <div class="nome-campeonato">${item.nome_campeonato}</div>
+                <div class="fase-campeonato">${item.status_campeonato}</div>                
+              </div>
+              <hr class="hr">
+            </div>
+        `;
+        container.innerHTML += card;
+      });
+  
+    } catch (err) {
+      console.error("Erro ao carregar cronograma de campeonatos:", err);
+    }
+  });
+  
+  // CRONOGRAMA DE JOGOS
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.getElementById("grid-jogos");
+  
+    try {
+      const res = await fetch("/api/cronograma-jogos");
+      const data = await res.json();
+  
+      container.innerHTML = "";
+  
+      data.forEach(item => {
+        const card = `
+            <div class="container-jogo">
+              <div class="datahora-times">
+                <div class="data-hora-jogo">
+                  <label class="hora">${item.hora_campeonato}</label>
+                  <label class="data">${item.data_campeonato}</label>
+                </div>
+                <div class="time-campeonato-jogo">
+                  <label class="time">
+                    <div class="nome-time">FURIA</div>
+                    <div class="placar">${item.placar_furia_campeonato} <label class="vs">vs</label> ${item.placar_adversario_campeonato}</div>
+                    <div class="nome-time">${item.nome_time}</div>
+                  </label>
+                  <label class="campeonato">${item.nome_campeonato}</label>
+                </div>
+              </div>
+              <div class="play-partidas-jogo">
+                <a href="${item.link_partida}"><iconify-icon icon="mdi:play" class="play"></iconify-icon></a>
+                <div class="partidas-jogo">
+                  <img src="${item.img_jogo_campeonato}" alt="Logo do LOL">
+                  MD${item.qtd_partida}
+                </div>
+              </div>
+            </div>
+        `;
+        container.innerHTML += card;
+      });
+  
+    } catch (err) {
+      console.error("Erro ao carregar cronograma de jogos:", err);
+    }
+  });
+  
   
   

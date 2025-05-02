@@ -31,6 +31,13 @@ app.get('/', (req, res) => {
 
 let messages = [];
 
+// CRONOGRAMA
+
+const cronogramaRoutes = require('./routes/cronograma');
+app.use(cronogramaRoutes);
+
+//CHAT
+
 io.on('connection', socket => {
     console.log(`Usuário conectado: ${socket.id}`);
 
@@ -45,3 +52,5 @@ io.on('connection', socket => {
 server.listen(3000, () => {
   console.log('Servidor rodando em http://localhost:3000');
 });
+
+
