@@ -28,7 +28,7 @@ html {
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
   color: currentColor;
 }
@@ -70,6 +70,7 @@ a{
         font-size: 1.2rem;
         font-weight: 300;
         cursor: pointer;
+        text-wrap: nowrap;
       }
     }
   }
@@ -107,6 +108,7 @@ a{
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+    text-wrap: nowrap;
   }
 
   & .chat-da-galera:hover {
@@ -158,8 +160,8 @@ a{
         border: 1px solid var(--gold);
         word-wrap: break-word;
 
-        & .username{
-        font-weight: 700;
+        & .username {
+          font-weight: 700;
         }
       }
     }
@@ -207,6 +209,319 @@ a{
   }
 }
 
+.gradient {
+  width: 100vw;
+  height: 50vh;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    #efbe6133 0%,
+    #bc954c33 23%,
+    #00000000 100%
+  );
+}
+
+.tela-inicial {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+
+  & .container-inicial {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    min-height: 350px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+
+    & .containers-furia {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+
+      & .text {
+        font-size: 3rem;
+        font-family: var(--font-title);
+      }
+      & .images-adidas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        & .furia {
+          font-size: 100px;
+          font-family: var(--font-title);
+        }
+      }
+
+      .images-jogos {
+        height: 150px;
+      }
+
+      & .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        font-size: 2rem;
+        font-family: var(--font-title);
+        border: 1px solid var(--gold);
+        padding-inline: 12px;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        & .shop {
+          font-size: 2.3rem;
+        }
+
+        & .date {
+          font-size: 2.3rem;
+        }
+      }
+    }
+  }
+}
+
+.tela-cronograma {
+  width: 100vw;
+  height: 120vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  & .title {
+    font-size: 3rem;
+    margin-top: 15vh;
+  }
+
+  & .container-geral-cronograma {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 80vh;
+
+    & .container-campeonatos-ativos {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      & .title-campeonatos-ativos {
+        height: 10%;
+        width: 100%;
+        font-size: 2rem;
+        font-family: var(--font-title);
+      }
+
+      & .grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      & .grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+        overflow-y: scroll;
+        gap: 30px;
+
+        & .campeonato {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          height: 150px;
+          justify-content: space-between;
+
+          & .jogo-campeonato {
+            font-size: 2rem;
+            font-family: var(--font-title);
+            align-self: center;
+          }
+
+          & .nome-fase-campeonato {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            & .nome-campeonato {
+              font-size: 1.2rem;
+              font-weight: 600;
+            }
+
+            .fase-campeonato {
+              font-size: 1rem;
+              font-weight: 300;
+            }
+          }
+
+          & .hr {
+            width: 100%;
+            color: var(--gold);
+            background-color: #edbd61;
+          }
+        }
+      }
+    }
+
+    & .container-filter-cronograma {
+      width: 75%;
+      height: 100%;
+
+      border-radius: 10px;
+
+      .container-filter::-webkit-scrollbar{
+        display: none;
+      }
+
+      .container-filter {
+        height: 10%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+        overflow-x: scroll;
+
+        .jogo {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          padding-inline: 12px;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          border: 1px solid var(--gold);
+          border-radius: 10px;
+
+          & .logo {
+            width: 24px;
+          }
+
+          & .nome {
+            font-family: var(--font-title);
+            font-size: 1.7rem;
+            text-wrap: nowrap;
+          }
+        }
+      }
+
+      & .container-cronograma::-webkit-scrollbar {
+        display: none;
+      }
+
+      & .container-cronograma {
+        border-radius: 10px;
+        width: 100%;
+        height: 90%;
+        border: 1px solid var(--gold);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        z-index: 2;
+
+        & .container-jogo {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          height: 150px;
+          border-bottom: 1px solid #fff;
+          z-index: 1;
+          align-items: center;
+          padding-inline: 70px;
+          justify-content: space-between;
+
+          & .datahora-times {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & .data-hora-jogo {
+              display: flex;
+              flex-direction: column;
+
+              & .hora {
+                font-size: 1.5rem;
+                font-family: var(--font-title);
+              }
+
+              & .data {
+                font-weight: 300;
+              }
+            }
+
+            & .time-campeonato-jogo {
+              display: flex;
+              flex-direction: column;
+              margin-left: 90px;
+
+              & .time {
+                display: flex;
+                gap: 10px;
+                flex-wrap: nowrap;
+
+                & .nome-time {
+                  font-weight: 700;
+                }
+
+                .placar{
+                  text-wrap: nowrap;
+                }
+
+                & .vs {
+                  color: var(--gold);
+                  text-wrap: nowrap;
+                }
+              }
+
+              & .campeonato {
+                font-weight: 300;
+              }
+            }
+          }
+
+          & .play-partidas-jogo {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+
+            & .play {
+              font-size: 24px;
+            }
+
+            & .logo {
+              width: 24px;
+            }
+
+            & .partidas-jogo {
+              display: flex;
+              flex-direction: row;
+              gap: 10px;
+              align-items: center;
+              justify-content: center;
+              padding-inline: 12px;
+              padding-bottom: 8px;
+              padding-top: 8px;
+              border: 1px solid var(--gold);
+              border-radius: 2px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 /* CADASTRO E LOGIN */
 
 .auth-wrapper {
@@ -221,15 +536,14 @@ a{
   background-color: #1a1a1a;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 0 10px var(--gold);
+  box-shadow: 3px 3px 15px #edbc6111;
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
 .auth-title {
-  font-family: var(--font-title);
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin-bottom: 24px;
   color: var(--gold);
 }
