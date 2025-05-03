@@ -18,6 +18,12 @@ body {
   color: var(--white);
 }
 
+input[type="radio"]:checked + label.jogo {
+  outline: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
 html {
   font-size: 16px;
 }
@@ -142,12 +148,19 @@ a {
     border: 1px var(--gold) solid;
     border-radius: 10px;
 
+    & .grid-chat::-webkit-scrollbar {
+      display: none;
+    }
+
     & .grid-chat {
       display: flex;
       flex-direction: column;
       gap: 10px;
       width: 100%;
       position: relative;
+      overflow-y: scroll;
+      margin-bottom: 20px;
+      overflow-x: hidden;
 
       & .message {
         display: flex;
@@ -160,9 +173,14 @@ a {
         border-bottom-left-radius: 0px;
         border: 1px solid var(--gold);
         word-wrap: break-word;
+        text-wrap: wrap;
+        max-width: 100%;
+
 
         & .username {
           font-weight: 700;
+          color: #edbd61;
+          text-wrap: nowrap;
         }
       }
     }
@@ -381,7 +399,7 @@ a {
 
       border-radius: 10px;
 
-      .container-filter::-webkit-scrollbar{
+      .container-filter::-webkit-scrollbar {
         display: none;
       }
 
@@ -404,6 +422,7 @@ a {
           padding-bottom: 8px;
           border: 1px solid var(--gold);
           border-radius: 10px;
+          cursor: pointer;
 
           & .logo {
             width: 24px;
@@ -429,6 +448,20 @@ a {
         overflow-x: hidden;
         overflow-y: scroll;
         z-index: 2;
+
+        .sem-jogos {
+          text-align: center;
+          color: #ccc;
+          font-size: 1.2rem;
+          margin-top: 2rem;
+        }
+
+        .erro-jogos {
+          text-align: center;
+          color: red;
+          font-weight: bold;
+          margin-top: 2rem;
+        }
 
         & .container-jogo {
           display: flex;
@@ -474,7 +507,7 @@ a {
                   font-weight: 700;
                 }
 
-                .placar{
+                .placar {
                   text-wrap: nowrap;
                 }
 

@@ -9,16 +9,20 @@
   <body>
     <nav class="navbar">
       <div class="logo-name-links">
-        <a href="index.html"><div class="logo-name">
-          <div class="logo">
-            <img src="assets/img/furia-logo.svg" alt="" />
-          </div>
-          <div class="name">FuriArena</div>
-        </div></a>
+        <a href="index.html"
+          ><div class="logo-name">
+            <div class="logo">
+              <img src="assets/img/furia-logo.svg" alt="" />
+            </div>
+            <div class="name">FuriArena</div>
+          </div></a
+        >
 
         <div class="nav-links">
           <a href="#tela-inicial"><div class="link">Inicio</div></a>
-          <a href="#tela-calendario"><div class="link">Calendário de Jogos</div></a>
+          <a href="#tela-calendario"
+            ><div class="link">Calendário de Jogos</div></a
+          >
           <a href="https://www.furia.gg/"><div class="link">Loja</div></a>
         </div>
       </div>
@@ -28,84 +32,99 @@
     <div class="gradient"></div>
 
     <div class="tela-inicial" id="tela-inicial">
-
       <div class="container-inicial">
         <div class="containers-furia">
           <div class="text">Conheça nossa nova linha de roupas</div>
           <div class="images-adidas">
             <div class="furia">Furia |</div>
-            <img src="assets/img/adidas-logo.svg">
+            <img src="assets/img/adidas-logo.svg" />
           </div>
-          <a href="https://www.furia.gg/"><div class="button">
-            Garanta já a sua
-            <iconify-icon icon="mage:shop" class="shop"></iconify-icon>
-          </div></a>
+          <a href="https://www.furia.gg/"
+            ><div class="button">
+              Garanta já a sua
+              <iconify-icon icon="mage:shop" class="shop"></iconify-icon></div
+          ></a>
         </div>
 
         <div class="containers-furia">
-            <div class="text">Fique por dentro dos próximos jogos</div>
-            <div class="images-jogos">
-                <img src="assets/img/games-logos.svg" alt="">
-            </div>
-            <a href="#tela-calendario"><div class="button">Confira as proximos datas
-            <iconify-icon icon="material-symbols:calendar-month-outline" class="date"></iconify-icon>
-            </div></a>
-
+          <div class="text">Fique por dentro dos próximos jogos</div>
+          <div class="images-jogos">
+            <img src="assets/img/games-logos.svg" alt="" />
+          </div>
+          <a href="#tela-calendario"
+            ><div class="button">
+              Confira as proximos datas
+              <iconify-icon
+                icon="material-symbols:calendar-month-outline"
+                class="date"
+              ></iconify-icon></div
+          ></a>
         </div>
       </div>
     </div>
 
     <div class="tela-cronograma">
-
       <div class="title">Cronograma de Jogos</div>
 
       <div class="container-geral-cronograma">
         <div class="container-campeonatos-ativos">
-          <div class="title-campeonatos-ativos" id="tela-calendario">Campeonatos ativos</div>
+          <div class="title-campeonatos-ativos" id="tela-calendario">
+            Campeonatos ativos
+          </div>
           <div class="grid" id="grid-campeonato">
-
             <label>Não há campeonatos ativos.</label>
-            
-
-
           </div>
         </div>
         <div class="container-filter-cronograma">
           <div class="container-filter">
-            <div class="jogo">
-              <img src="assets/img/lol-logo.svg" alt="Logo do LOL">
+            <input
+              type="radio"
+              name="jogo"
+              id="lol"
+              value="League of Legends"
+              hidden
+            />
+            <label for="lol" class="jogo">
+              <img src="assets/img/lol-logo.svg" alt="Logo do LOL" />
               <div class="nome">League of Legends</div>
-            </div>
+            </label>
 
-            <div class="jogo">
-              <img src="assets/img/cs2-logo.svg" alt="Logo do CS2">
+            <input type="radio" name="jogo" id="cs2" value="CS2" hidden />
+            <label for="cs2" class="jogo">
+              <img src="assets/img/cs2-logo.svg" alt="Logo do CS2" />
               <div class="nome">Counter Strike 2</div>
-            </div>
+            </label>
 
-            <div class="jogo">
-              <img src="assets/img/rl-logo.svg" alt="Logo do Rocket League">
+            <input
+              type="radio"
+              name="jogo"
+              id="rl"
+              value="Rocket League"
+              hidden
+            />
+            <label for="rl" class="jogo">
+              <img src="assets/img/rl-logo.svg" alt="Logo do Rocket League" />
               <div class="nome">Rocket League</div>
-            </div>
+            </label>
 
-            <div class="jogo">
-              <img src="assets/img/valorant-logo.svg" alt="Logo do Valorant">
+            <input
+              type="radio"
+              name="jogo"
+              id="valorant"
+              value="Valorant"
+              hidden
+            />
+            <label for="valorant" class="jogo">
+              <img src="assets/img/valorant-logo.svg" alt="Logo do Valorant" />
               <div class="nome">Valorant</div>
-            </div>
-
-
-
-
+            </label>
           </div>
+
           <div class="container-cronograma" id="grid-jogos">
-
-            <label>Não há jogos agendados.</label>
-
+            <br /><br /><label class="sem-jogos">Não há jogos agendados.</label>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
     <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>

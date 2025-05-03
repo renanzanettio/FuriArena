@@ -126,6 +126,69 @@ $('#formCadastro').submit(function (e) {
   
   // CRONOGRAMA DE JOGOS
 
+// Função que carrega os jogos de acordo com o valor (ex: 'LOL', 'CS2', etc.)
+async function carregarJogos(jogoSelecionado) {
+  const container = document.getElementById("grid-jogos");
+
+  try {
+    const res = await fetch("/api/cronograma-jogos");
+    const data = await res.json();
+
+    container.innerHTML = "";
+
+    data.forEach(item => {
+      
+      if (item.jogo_campeonato === jogoSelecionado) {
+        exite = true
+        const card = `
+          <div class="container-jogo">
+            <div class="datahora-times">
+              <div class="data-hora-jogo">
+                <label class="hora">${item.hora_campeonato}</label>
+                <label class="data">${item.data_campeonato}</label>
+              </div>
+              <div class="time-campeonato-jogo">
+                <label class="time">
+                  <div class="nome-time">FURIA</div>
+                  <div class="placar">${item.placar_furia_campeonato} <label class="vs">vs</label> ${item.placar_adversario_campeonato}</div>
+                  <div class="nome-time">${item.nome_time}</div>
+                </label>
+                <label class="campeonato">${item.nome_campeonato}</label>
+              </div>
+            </div>
+            <div class="play-partidas-jogo">
+              <a href="${item.link_partida}"><iconify-icon icon="mdi:play" class="play"></iconify-icon></a>
+              <div class="partidas-jogo">
+                <img src="${item.img_jogo_campeonato}" alt="Logo do Jogo">
+                MD${item.qtd_partida}
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += card;
+      }
+    });
+
+  } catch (err) {
+    console.error("Erro ao carregar cronograma de jogos:", err);
+  }
+}
+
+// Quando o DOM estiver pronto
+document.addEventListener("DOMContentLoaded", () => {
+  const radios = document.querySelectorAll('input[name="jogo"]');
+
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      const selectedValue = radio.value;
+      carregarJogos(selectedValue);
+    });
+  });
+});
+
+
+  // EXECUTAR ASSIM QUE INICIAR A PAGINA
+  
   document.addEventListener("DOMContentLoaded", async () => {
     const container = document.getElementById("grid-jogos");
   
