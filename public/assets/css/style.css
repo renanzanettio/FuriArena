@@ -344,6 +344,7 @@ a {
   & .title {
     font-size: 3rem;
     margin-top: 15vh;
+    font-weight: 700;
   }
 
   & .container-geral-cronograma {
@@ -472,15 +473,16 @@ a {
         z-index: 2;
 
         .sem-jogos {
-          text-align: center;
-          color: #ccc;
-          font-size: 1.2rem;
-          margin-top: 2rem;
+          color: var(--white);
+          font-size: 1.3rem;
+          margin-left: 42%;
+          width: 100%;
+          align-self: center;
         }
 
         .erro-jogos {
           text-align: center;
-          color: red;
+          color: #f00;
           font-weight: bold;
           margin-top: 2rem;
         }
@@ -504,6 +506,7 @@ a {
             & .data-hora-jogo {
               display: flex;
               flex-direction: column;
+              align-items: center;
 
               & .hora {
                 font-size: 1.5rem;
@@ -543,6 +546,10 @@ a {
                 font-weight: 300;
               }
             }
+          }
+
+          & .status-partida{
+            font-weight: 600;
           }
 
           & .play-partidas-jogo {
