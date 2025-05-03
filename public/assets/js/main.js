@@ -1,7 +1,8 @@
+//Chat
 var socket = io('http://localhost:3000')
 
 function renderMessage(message) {
-    $('.grid-chat').append('<div class="message"><label class="username">'+ message.author +': </label> ' + message.message);
+    $('.grid-chat').append('<div class="message"><label class="text-message"><label class="username">'+ message.author +': </label> ' + message.message + '</label>');
 }
 
 socket.on('receivedMessage', function(message) {
@@ -86,7 +87,7 @@ $('#formCadastro').submit(function (e) {
   $(document).ready(function () {
     $.get('/auth/user')
       .done(function (res) {
-        $('#userName').text(res.nome); // Exibe o nome no elemento com ID userName
+        $('#userName').text(res.nome); 
       })
       .fail(function () {
         $('#userName').text('Visitante');
@@ -126,7 +127,7 @@ $('#formCadastro').submit(function (e) {
   
   // CRONOGRAMA DE JOGOS
 
-// Função que carrega os jogos de acordo com o valor (ex: 'LOL', 'CS2', etc.)
+// Função que carrega os jogos de acordo com o valor da radio
 async function carregarJogos(jogoSelecionado) {
   const container = document.getElementById("grid-jogos");
 
@@ -138,8 +139,39 @@ async function carregarJogos(jogoSelecionado) {
 
     data.forEach(item => {
       
+      //compara as linhas da query com o valor do jogo selecionado
       if (item.jogo_campeonato === jogoSelecionado) {
         exite = true
+        const card = `
+          <div class="container-jogo">
+            <div class="datahora-times">
+              <div class="data-hora-jogo">
+                <label class="hora">${item.hora_campeonato}</label>
+                <label class="data">${item.data_campeonato}</label>
+              </div>
+              <div class="time-campeonato-jogo">
+                <label class="time">
+                  <div class="nome-time">FURIA</div>
+                  <div class="placar">${item.placar_furia_campeonato} <label class="vs">vs</label> ${item.placar_adversario_campeonato}</div>
+                  <div class="nome-time">${item.nome_time}</div>
+                </label>
+                <label class="campeonato">${item.nome_campeonato}</label>
+              </div>
+            </div>
+            <div class="play-partidas-jogo">
+              <a href="${item.link_partida}"><iconify-icon icon="mdi:play" class="play"></iconify-icon></a>
+              <div class="partidas-jogo">
+                <img src="${item.img_jogo_campeonato}" alt="Logo do Jogo">
+                MD${item.qtd_partida}
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += card;
+      }
+
+      //Se o botão tudos estiver selecionado ele deve executar essa função
+      if ("todos" === jogoSelecionado) {
         const card = `
           <div class="container-jogo">
             <div class="datahora-times">
